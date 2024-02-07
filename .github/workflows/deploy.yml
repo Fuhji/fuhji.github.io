@@ -14,14 +14,14 @@ jobs:
         node-version: [20]
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: node server.js
         env:
           SECRET_SQUIRREL: ${{ secrets.SECRET_SQUIRREL }}
-
-      - uses: actions/checkout@v3
 
       - name: Angular Deploy gh-pages Actions
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
